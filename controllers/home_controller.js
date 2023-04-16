@@ -49,6 +49,7 @@ module.exports.delete = function (req, res) {
       console.log(`Error in deleting item from db: ${err}`);
       return;
     }
+    console.log("Item/s deleted Succfully")
     return res.redirect("back");
   });
 };

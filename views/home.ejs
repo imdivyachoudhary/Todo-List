@@ -21,7 +21,10 @@
     <link rel="stylesheet" href="/css/home.css" />
   </head>
   <body>
+    <!-- Heading -->
     <div class="heading">TODO APP</div>
+
+    <!-- Form for Adding Todo List Items -->
     <div class="col-50 vertical-center horizontal-center">
       <div class="form-box">
         <form class="row g-3" action="/create-todo-list-item" method="post">
@@ -64,8 +67,9 @@
         </form>
       </div>
     </div>
+
+    <!-- Display the Todo List Items -->
     <div class="col-50">
-      <!-- <div class="sub-heading">List</div> -->
       <% if(items.length) { %>
       <form class="row g-3" action="/delete-item" method="post">
         <div class="col-12 horizontal-center">
