@@ -6,7 +6,7 @@ body{
 
 .heading{
     width: 100%;
-    height: 20vh;
+    height: 15vh;
     padding: 10px;
     text-align: center;
     font-size: 4rem;
@@ -74,4 +74,13 @@ form label{
 
 .category-color4{
     background-color: burlywood;
+}
+
+.list-form{
+    height: 100%;
+}
+
+.list-box{
+    height: 90%;
+    overflow: auto;
 }
