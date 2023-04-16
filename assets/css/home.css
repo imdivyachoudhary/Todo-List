@@ -20,6 +20,8 @@ body{
     font-size: 2rem;
     font-weight: bold;
     font-family: Arial, Helvetica, sans-serif;
+    color: grey;
+    height: 100%;
 }
 
 .col-50{
@@ -56,4 +58,20 @@ form label{
 
 .todo_date{
     font-weight: normal;
+}
+
+.category-color1{
+    background-color: blueviolet;
+}
+
+.category-color2{
+    background-color: darkslategrey;
+}
+
+.category-color3{
+    background-color: cornflowerblue;
+}
+
+.category-color4{
+    background-color: burlywood;
 }

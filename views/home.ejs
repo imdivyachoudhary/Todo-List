@@ -24,7 +24,7 @@
     <div class="heading">TODO APP</div>
     <div class="col-50 vertical-center horizontal-center">
       <div class="form-box">
-        <form class="row g-3" action="/">
+        <form class="row g-3" action="/create-todo-list-item" method="post">
           <div class="col-md-6">
             <label for="category" class="form-label">Category</label>
             <select class="form-select" id="category" name="category" required>
@@ -66,13 +66,15 @@
     </div>
     <div class="col-50">
       <!-- <div class="sub-heading">List</div> -->
-      <form class="row g-3" action="/">
+      <% if(items.length) { %>
+      <form class="row g-3" action="/delete-item" method="post">
         <div class="col-12 horizontal-center">
           <button type="submit" class="btn btn-danger btn-lg">
             <i class="fas fa-trash-alt"></i>&nbsp;DELETE
           </button>
         </div>
         <ul class="list-group">
+          <% for (let item of items) { %>
           <li
             class="list-group-item d-flex justify-content-between align-items-center"
           >
@@ -80,18 +82,34 @@
               <input
                 class="form-check-input me-1"
                 type="checkbox"
-                value=""
-                id="firstCheckbox"
+                value="<%= item.id %>"
+                id="item.id"
+                name="item_id"
               />
-              <label class="form-check-label" for="firstCheckbox">
-                <div>First checkbox</div>
-                <div class="todo_date"><i class="fas fa-calendar-alt"></i>&nbsp;21/04/2023</div>
+              <label class="form-check-label" for="">
+                <div><%= item.description %></div>
+                <div class="todo_date">
+                  <i class="fas fa-calendar-alt"></i>&nbsp;<%=
+                  item.due_date.toDateString() %>
+                </div>
               </label>
             </div>
-            <span class="badge bg-primary rounded-pill">Work</span>
+            <% if(item.category=="Personal") { %>
+            <span class="badge rounded-pill category-color1">Personal</span>
+            <% } else if(item.category=="Work") { %>
+            <span class="badge rounded-pill category-color2">Work</span>
+            <% } else if(item.category=="School") { %>
+            <span class="badge rounded-pill category-color3">School</span>
+            <% } else { %>
+            <span class="badge rounded-pill category-color4">Other</span>
+            <% } %>
           </li>
+          <% } %>
         </ul>
       </form>
+      <% } else { %>
+        <div class="sub-heading vertical-center">Nothing To Display!!!<br>Add Items To Your Todo List</div>
+        <% } %>
     </div>
 
     <script
